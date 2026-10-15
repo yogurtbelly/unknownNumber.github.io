@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unknown Number // A Text Mystery</title>
+<script>document.documentElement.classList.add("js")</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2.0">
+</head>
+<body>
+
+<!-- Loading Screen -->
+<div class="loader" id="loader">
+  <div class="loader-bar" id="loader-bar"></div>
+</div>
+
+<!-- Floating nav: collapsed pill, expands into the menu panel -->
+<header class="nav" id="nav">
+  <div class="nav-bar">
+    <a class="nav-brand" href="#top">Unknown Number</a>
+    <button class="nav-toggle" id="nav-toggle" type="button"
+            aria-expanded="false" aria-controls="nav-panel" aria-label="Open menu"></button>
+  </div>
+
+  <div class="nav-panel" id="nav-panel">
+    <div class="nav-panel-inner">
+      <div class="nav-main">
+        <ul class="nav-links">
+          <li><a href="#top">Home</a></li>
+          <li><a href="#update">Update</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-image nav-image--terminal" role="img" aria-label="Transmission signal preview">
+          <div class="nav-terminal-screen">
+            <span class="nav-terminal-badge">LIVE SIGNAL</span>
+            <div class="nav-terminal-freq">03:42 AM</div>
+            <div class="nav-terminal-msg">INCOMING TRANSMISSION...</div>
+            <div class="nav-terminal-cursor">█</div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-socials">
+        <div class="nav-socials-header">
+          <span class="nav-socials-tag">CONNECT // SOCIALS</span>
+          <span class="nav-socials-line"></span>
+        </div>
+        <ul class="nav-socials-list">
+          <li>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="nav-social-item" title="Follow on Instagram">
+              <svg class="pixel-social-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" shape-rendering="crispEdges">
+                <rect x="2" y="2" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"/>
+                <rect x="6" y="6" width="4" height="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="11" y="4" width="1.5" height="1.5" fill="currentColor"/>
+              </svg>
+              <span>Instagram</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="nav-social-item" title="Follow on Twitter / X">
+              <svg class="pixel-social-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" shape-rendering="crispEdges">
+                <path d="M2 2h3.5l2.8 4L11.5 2H14l-4.2 6 4.6 6h-3.5L8 9.8 4.7 14H2l4.3-6.2L2 2z" fill="currentColor"/>
+              </svg>
+              <span>Twitter</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:contact@unknownnumber.game" class="nav-social-item" title="Direct Email Dispatch">
+              <svg class="pixel-social-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" shape-rendering="crispEdges">
+                <rect x="1" y="3" width="14" height="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M2 4l6 5 6-5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              <span>Email</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="nav-dim" aria-hidden="true"></div>
+
+<main>
+  <!-- Section 1: hero -->
+  <section class="hero" id="top">
+    <h1>A late-night text from an unknown number. He thinks you're someone who disappeared years ago.</h1>
+  </section>
+
+  <!-- Section 2: pinned while you scroll; scroll scrubs the words, then the mail -->
+  <section class="about" id="about">
+    <div class="about-stage">
+      <div class="about-inner">
+        <p data-fly>Late one evening, your phone vibrates with a message from a stranger asking to meet. He is convinced he is speaking to Lia—a girl who has been gone for years. Play along, uncover the truth of who they were, and discover where she went.</p>
+      </div>
+
+      <figure class="mail" aria-label="1 unread message">
+        <div class="mail-drop">
+          <span class="mail-body"></span>
+          <span class="mail-fold mail-fold--l"></span>
+          <span class="mail-fold mail-fold--r"></span>
+          <span class="mail-fold mail-fold--b"></span>
+          <span class="mail-flap"></span>
+          <span class="pin" aria-hidden="true">1</span>
+        </div>
+      </figure>
+
+      <!-- Bottom elements from layout mockup -->
+      <div class="about-bottom-left">incoming transmission // 03:42 am</div>
+      <div class="about-bottom-right" role="img" aria-label="Image placeholder"></div>
+
+      <!-- Game lives directly inside .about-stage -->
+      <div class="game" id="game" aria-hidden="true">
+        <div class="game-frame">
+
+          <div class="game-titlebar">
+            <div class="game-titlebar-lead">
+              <span class="game-titlebar-icon">💬</span>
+              <span class="game-titlebar-title">Messages — Unknown Number</span>
+            </div>
+            <div class="game-titlebar-controls">
+              <button class="game-win-btn game-minimize" type="button" aria-label="Minimize" title="Minimize">─</button>
+              <button class="game-win-btn game-maximize" type="button" aria-label="Maximize" title="Maximize">□</button>
+              <button class="game-win-btn game-close" type="button" aria-label="Close window" title="Close window">✕</button>
+            </div>
+          </div>
+
+          <div class="game-body">
+
+            <aside class="game-sidebar">
+              <h2 class="game-sidebar-title">Messages</h2>
+              <ul class="game-contacts">
+                <li class="game-contact is-active">
+                  <span class="game-contact-dot"></span>
+                  <div class="game-contact-info">
+                    <strong class="game-contact-name">Unknown number</strong>
+                    <span class="game-contact-preview">hey</span>
+                  </div>
+                  <span class="game-contact-time">now</span>
+                  <span class="game-contact-arrow">›</span>
+                </li>
+                <li class="game-contact">
+                  <div class="game-contact-info">
+                    <strong class="game-contact-name">Mom</strong>
+                    <span class="game-contact-preview">i completely forgot about it</span>
+                  </div>
+                  <span class="game-contact-time">08.24</span>
+                  <span class="game-contact-arrow">›</span>
+                </li>
+                <li class="game-contact">
+                  <div class="game-contact-info">
+                    <strong class="game-contact-name">charles</strong>
+                    <span class="game-contact-preview">🤙🤙</span>
+                  </div>
+                  <span class="game-contact-time">yesterday</span>
+                  <span class="game-contact-arrow">›</span>
+                </li>
+                <li class="game-contact">
+                  <div class="game-contact-info">
+                    <strong class="game-contact-name">The Kirkless</strong>
+                    <span class="game-contact-preview">next week band sesh at 4pm</span>
+                  </div>
+                  <span class="game-contact-time">2 days ago</span>
+                  <span class="game-contact-arrow">›</span>
+                </li>
+                <li class="game-contact">
+                  <div class="game-contact-info">
+                    <strong class="game-contact-name">Barnies Library</strong>
+                    <span class="game-contact-preview">thank you for renewing your membership at Barnies</span>
+                  </div>
+                  <span class="game-contact-time">21/08/26</span>
+                  <span class="game-contact-arrow">›</span>
+                </li>
+                <li class="game-contact">
+                  <div class="game-contact-info">
+                    <strong class="game-contact-name">chloe</strong>
+                    <span class="game-contact-preview">thanks.</span>
+                  </div>
+                  <span class="game-contact-time">29/05/26</span>
+                  <span class="game-contact-arrow">›</span>
+                </li>
+              </ul>
+            </aside>
+
+            <div class="game-chat">
+              <div class="game-chat-header">
+                <div class="game-chat-avatar"></div>
+                <span class="game-chat-name">Unknown number</span>
+              </div>
+              <div class="game-log"></div>
+              <div class="game-choices"></div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Windows-style Settings Window -->
+      <div class="win-settings-dialog" id="win-settings" aria-hidden="true">
+        <div class="win-settings-frame" id="win-settings-frame">
+          <div class="game-titlebar win-settings-titlebar" id="win-settings-titlebar">
+            <div class="game-titlebar-lead">
+              <span class="game-titlebar-icon">⚙️</span>
+              <span class="game-titlebar-title">System Settings &amp; Data Control</span>
+            </div>
+            <div class="game-titlebar-controls">
+              <button class="game-win-btn win-settings-minimize" type="button" aria-label="Minimize" title="Minimize">─</button>
+              <button class="game-win-btn win-settings-close" type="button" aria-label="Close settings" title="Close">✕</button>
+            </div>
+          </div>
+
+          <div class="win-settings-body">
+            <!-- Sidebar tabs -->
+            <div class="win-settings-nav">
+              <button class="win-settings-tab is-active" data-tab="general" type="button">
+                <span class="win-settings-tab-icon">💾</span>
+                <span>Data &amp; Progress</span>
+              </button>
+              <button class="win-settings-tab" data-tab="sound" type="button">
+                <span class="win-settings-tab-icon">🔊</span>
+                <span>Audio</span>
+              </button>
+              <button class="win-settings-tab" data-tab="window" type="button">
+                <span class="win-settings-tab-icon">🖥️</span>
+                <span>Window Position</span>
+              </button>
+            </div>
+
+            <!-- Content Area -->
+            <div class="win-settings-content">
+              <!-- Tab 1: Progress & Reset -->
+              <div class="win-settings-pane is-active" id="pane-general">
+                <h3 class="win-settings-heading">Game Progress &amp; Memory</h3>
+                <p class="win-settings-desc">Manage discovered branching paths, unlocked endings, and saved memory.</p>
+
+                <div class="win-settings-stats-card">
+                  <div class="win-stat-row">
+                    <span class="win-stat-label">Endings Discovered:</span>
+                    <strong class="win-stat-val" id="settings-endings-count">0 / 6</strong>
+                  </div>
+                  <div class="win-stat-row">
+                    <span class="win-stat-label">Messages Lit:</span>
+                    <strong class="win-stat-val" id="settings-messages-count">0 visited</strong>
+                  </div>
+                  <div class="win-stat-row">
+                    <span class="win-stat-label">Storage Status:</span>
+                    <span class="win-stat-status" id="settings-storage-status">Active (LocalStorage)</span>
+                  </div>
+                </div>
+
+                <div class="win-settings-danger-box">
+                  <div class="win-danger-header">
+                    <span class="win-danger-icon">⚠️</span>
+                    <div>
+                      <strong class="win-danger-title">Reset Novel Progress</strong>
+                      <p class="win-danger-subtitle">Clear all unlocked endings, badge achievements, and timeline paths. This resets the story back to the first incoming text.</p>
+                    </div>
+                  </div>
+
+                  <div class="win-danger-actions">
+                    <button class="win-btn win-btn-danger" id="btn-reset-progress" type="button">
+                      <span>🗑️ Reset All Progress</span>
+                    </button>
+                  </div>
+
+                  <!-- Inline Confirmation Box -->
+                  <div class="win-confirm-box" id="win-confirm-reset" hidden>
+                    <p class="win-confirm-text">Are you sure? All 6 badge achievements and discovered paths will be permanently erased.</p>
+                    <div class="win-confirm-btns">
+                      <button class="win-btn win-btn-danger" id="btn-confirm-reset-yes" type="button">Yes, Reset</button>
+                      <button class="win-btn win-btn-secondary" id="btn-confirm-reset-no" type="button">Cancel</button>
+                    </div>
+                  </div>
+                  <div class="win-reset-notice" id="win-reset-notice" hidden>✓ Progress has been reset!</div>
+                </div>
+              </div>
+
+              <!-- Tab 2: Sound -->
+              <div class="win-settings-pane" id="pane-sound">
+                <h3 class="win-settings-heading">Sound Notifications</h3>
+                <p class="win-settings-desc">Configure audio chimes for incoming and outgoing messages.</p>
+                <div class="win-settings-toggle-row">
+                  <div>
+                    <strong class="win-toggle-title">Message Audio Chimes</strong>
+                    <p class="win-toggle-sub">Play chimes when receiving or replying to Dan's messages.</p>
+                  </div>
+                  <label class="win-switch">
+                    <input type="checkbox" id="settings-sound-toggle" checked>
+                    <span class="win-slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Tab 3: Window Position -->
+              <div class="win-settings-pane" id="pane-window">
+                <h3 class="win-settings-heading">Window Positioning</h3>
+                <p class="win-settings-desc">The message window and settings window can be moved by dragging their title bars.</p>
+                <div class="win-settings-row-btn">
+                  <div>
+                    <strong class="win-toggle-title">Re-center Window</strong>
+                    <p class="win-toggle-sub">Snaps the message window back to the center of the desktop.</p>
+                  </div>
+                  <button class="win-btn win-btn-primary" id="btn-recenter-window" type="button">Re-center Position</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="win-settings-footer">
+            <span class="win-settings-status-bar">System Ready</span>
+            <button class="win-btn win-btn-secondary win-settings-ok" type="button">OK</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline app window -->
+      <div class="win-app-dialog" id="win-timeline-app" data-app="timeline" aria-hidden="true">
+        <div class="win-app-frame win-app-frame--timeline" id="win-timeline-frame">
+          <div class="game-titlebar" id="win-timeline-titlebar">
+            <div class="game-titlebar-lead">
+              <span class="game-titlebar-icon">🌳</span>
+              <span class="game-titlebar-title">Timeline — Message Paths</span>
+            </div>
+            <div class="game-titlebar-controls">
+              <button class="game-win-btn win-app-minimize" type="button" aria-label="Minimize" title="Minimize">─</button>
+              <button class="game-win-btn game-close win-app-close" type="button" aria-label="Close Timeline" title="Close">✕</button>
+            </div>
+          </div>
+
+          <div class="win-app-body">
+            <div class="timeline" id="timeline">
+              <div class="timeline-stage">
+                <div class="timeline-header">
+                  <div class="timeline-header-info">
+                    <h2 class="timeline-title">Timeline Matrix</h2>
+                    <span class="timeline-stats-chip" id="timeline-stats-chip">5 Endings • 17 Branches</span>
+                  </div>
+
+                  <div class="timeline-toolbar" role="toolbar" aria-label="Timeline navigation and zoom controls">
+                    <div class="timeline-zoom-controls">
+                      <button class="timeline-tool-btn" id="btn-zoom-out" type="button" title="Zoom Out (Overview)" aria-label="Zoom Out">
+                        <span>🔍-</span>
+                      </button>
+                      <button class="timeline-tool-btn timeline-tool-btn--zoom-val" id="btn-zoom-reset" type="button" title="Reset Zoom to 70%" aria-label="Zoom Level">
+                        <span id="timeline-zoom-text">70%</span>
+                      </button>
+                      <button class="timeline-tool-btn" id="btn-zoom-in" type="button" title="Zoom In" aria-label="Zoom In">
+                        <span>🔍+</span>
+                      </button>
+                    </div>
+
+                    <div class="timeline-nav-shortcuts">
+                      <button class="timeline-tool-btn timeline-tool-btn--action" id="btn-pan-left" type="button" title="Pan left (or scroll up / Arrow Left)">
+                        <span>◀ Left</span>
+                      </button>
+                      <button class="timeline-tool-btn timeline-tool-btn--action" id="btn-pan-right" type="button" title="Pan right (or scroll down / Arrow Right)">
+                        <span>Right ▶</span>
+                      </button>
+                      <button class="timeline-tool-btn timeline-tool-btn--action" id="btn-fit-tree" type="button" title="Fit entire tree into window view">
+                        <span>⛶ Fit</span>
+                      </button>
+                      <button class="timeline-tool-btn timeline-tool-btn--action" id="btn-focus-latest" type="button" title="Pan to latest unlocked node">
+                        <span>🎯 Latest</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-viewport" tabindex="0" role="region" aria-label="Interactive timeline tree canvas">
+                  <div class="timeline-track" id="timeline-track">
+                    <svg class="timeline-svg" id="timeline-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
+                    <div class="timeline-tree" id="timeline-tree"><!-- Nodes are generated from story.js --></div>
+                  </div>
+                </div>
+
+                <div class="timeline-scrollbar-container">
+                  <button class="timeline-scroll-btn timeline-scroll-btn--prev" id="btn-scroll-left" type="button" aria-label="Scroll timeline left" title="Scroll Left (or mouse wheel up)">◀</button>
+                  <div class="timeline-scrollbar-track" id="timeline-scroll-track">
+                    <div class="timeline-scrollbar-thumb" id="timeline-scroll-thumb" role="slider" aria-label="Timeline scroll position" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" tabindex="0">
+                      <span class="timeline-knob-arrows">&lt;&gt;</span>
+                    </div>
+                  </div>
+                  <button class="timeline-scroll-btn timeline-scroll-btn--next" id="btn-scroll-right" type="button" aria-label="Scroll timeline right" title="Scroll Right (or mouse wheel down)">▶</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Badges app window -->
+      <div class="win-app-dialog" id="win-badges-app" data-app="badges" aria-hidden="true">
+        <div class="win-app-frame win-app-frame--badges" id="win-badges-frame">
+          <div class="game-titlebar" id="win-badges-titlebar">
+            <div class="game-titlebar-lead">
+              <span class="game-titlebar-icon">🏅</span>
+              <span class="game-titlebar-title">Badges — Achievements</span>
+            </div>
+            <div class="game-titlebar-controls">
+              <button class="game-win-btn win-app-minimize" type="button" aria-label="Minimize" title="Minimize">─</button>
+              <button class="game-win-btn game-close win-app-close" type="button" aria-label="Close Badges" title="Close">✕</button>
+            </div>
+          </div>
+
+          <div class="win-app-body win-app-body--scroll">
+            <div class="badges-section" id="badges">
+              <div class="badges-container">
+                <h2 class="badges-title">Badges</h2>
+                <div class="badges-marquee" aria-label="Badges">
+                  <div class="badges-track"><!-- Badges are generated from story.js --></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Windows-style Taskbar at the bottom of the about screen -->
+      <div class="win-taskbar" id="win-taskbar" aria-label="Taskbar">
+        <button class="win-start-btn" type="button" aria-label="Start menu">
+          <svg class="win-start-logo" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" shape-rendering="crispEdges">
+            <rect x="1" y="1" width="6" height="6" fill="#A43032"/>
+            <rect x="9" y="1" width="6" height="6" fill="#828700"/>
+            <rect x="1" y="9" width="6" height="6" fill="#D2E5C5"/>
+            <rect x="9" y="9" width="6" height="6" fill="#F2D9A4"/>
+          </svg>
+          <span class="win-start-label">Start</span>
+        </button>
+
+        <div class="win-taskbar-divider"></div>
+
+        <div class="win-taskbar-apps">
+          <button class="win-taskbar-item is-active" id="win-taskbar-app" type="button" aria-label="Messages">
+            <span class="win-taskbar-icon">💬</span>
+            <span class="win-taskbar-title">Messages</span>
+          </button>
+          <button class="win-taskbar-item" id="win-taskbar-timeline" data-app-btn="timeline" type="button" aria-label="Timeline">
+            <span class="win-taskbar-icon">🌳</span>
+            <span class="win-taskbar-title">Timeline</span>
+            <span class="win-taskbar-dot" hidden></span>
+          </button>
+          <button class="win-taskbar-item" id="win-taskbar-badges" data-app-btn="badges" type="button" aria-label="Badges">
+            <span class="win-taskbar-icon">🏅</span>
+            <span class="win-taskbar-title">Badges</span>
+            <span class="win-taskbar-dot" hidden></span>
+          </button>
+          <button class="win-taskbar-item" id="win-taskbar-settings" type="button" aria-label="Settings">
+            <span class="win-taskbar-icon">⚙️</span>
+            <span class="win-taskbar-title">Settings</span>
+          </button>
+        </div>
+
+        <div class="win-taskbar-spacer"></div>
+
+        <div class="win-tray">
+          <span class="win-tray-icon" title="Audio">🔊</span>
+          <span class="win-tray-icon" title="Wi-Fi">📶</span>
+          <div class="win-tray-clock">
+            <span class="win-time">03:42 AM</span>
+            <span class="win-date">10/15/2026</span>
+          </div>
+          <div class="win-peek" title="Show desktop"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 3: Updates & Dev Transmissions -->
+  <section class="updates-section" id="update">
+    <div class="updates-container">
+      <div class="updates-header">
+        <span class="updates-badge">TRANSMISSION LOGS</span>
+        <h2 class="updates-title">Dev Updates &amp; Patch Notes</h2>
+        <p class="updates-desc">Chronological logs of system patches, narrative branches, and desktop interface upgrades.</p>
+      </div>
+
+      <div class="updates-grid">
+        <article class="update-card update-card--latest">
+          <div class="update-card-top">
+            <span class="update-version">v1.2.0 — LATEST</span>
+            <span class="update-date">October 15, 2026</span>
+          </div>
+          <h3 class="update-name">Desktop Reconnection &amp; Audio Transmissions</h3>
+          <p class="update-summary">Unified the interactive Timeline and Achievement Badges into draggable retro desktop windows, integrated message audio chimes, and implemented reset protections.</p>
+          <ul class="update-points">
+            <li><strong>In-Game Window Manager:</strong> Timeline and Badges now open as desktop applications with taskbar minimization, dragging, and live notification dots.</li>
+            <li><strong>Audio Chimes:</strong> Added audio feedback for incoming and sent messages using synthesized frequency cues.</li>
+            <li><strong>Safe Reset System:</strong> Implemented a session-token protected reset mechanism to wipe or restart narrative branches safely without race conditions.</li>
+          </ul>
+        </article>
+
+        <article class="update-card">
+          <div class="update-card-top">
+            <span class="update-version">v1.1.0</span>
+            <span class="update-date">September 28, 2026</span>
+          </div>
+          <h3 class="update-name">The Branching Matrix &amp; Achievement Badges</h3>
+          <p class="update-summary">Added 5 distinct endings to Dan's conversation, along with 6 collectible pixel badges tracking investigative achievements.</p>
+          <ul class="update-points">
+            <li><strong>Multiple Endings:</strong> Uncover <em>The Ghost in the Wire</em>, <em>Echoes at the Pier</em>, <em>Wrong Number</em>, <em>The Archive</em>, and <em>Static Truth</em>.</li>
+            <li><strong>Achievement Ranks:</strong> Unlocked badges now showcase unique pixel art emblems and rarity indicators.</li>
+          </ul>
+        </article>
+
+        <article class="update-card">
+          <div class="update-card-top">
+            <span class="update-version">v1.0.0</span>
+            <span class="update-date">August 12, 2026</span>
+          </div>
+          <h3 class="update-name">First Contact // 03:42 AM</h3>
+          <p class="update-summary">Initial public transmission. The phone rings in the dead of night with a message intended for someone who vanished.</p>
+          <ul class="update-points">
+            <li><strong>Core Visual Novel:</strong> Real-time text dialogue engine, dynamic typing indicator, and responsive choices.</li>
+            <li><strong>Retro Operating System:</strong> Nostalgic CRT aesthetic with classic window chrome and typography.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Section 4: footer -->
+<footer class="footer" id="footer">
+  <div class="footer-bar">
+    <div class="footer-bar-inner">
+      <small>&copy;2026 All rights Reserved.</small>
+      <div class="footer-links">
+        <a href="#top">Home</a>
+        <a href="#update">Update</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-socials">
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">Twitter</a>
+        <a href="mailto:contact@unknownnumber.game" aria-label="Email">Email</a>
+      </div>
+      <span class="footer-credit">website by yves</span>
+    </div>
+  </div>
+</footer>
+
+<script src="story.js?v=2.0"></script>
+<script src="script.js?v=2.0"></script>
+<script src="game.js?v=2.0"></script>
+</body>
+</html>
